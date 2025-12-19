@@ -25,7 +25,6 @@ def add(detail_list):
     val=detail_list
     mycur.execute(qadd,detail_list)
     mydb.commit()
-#    print('Row added')
 
 def emp_exists(emp_id): 
     query = "SELECT emp_ID FROM emp WHERE emp_ID = %s"
