@@ -10,8 +10,6 @@ mydb = mysql.connector.connect(
     password="password",
     database="Form") 
 
-if mydb.is_connected()== False:
-    print("Not Connected") 
 
 mycur=mydb.cursor()
 
