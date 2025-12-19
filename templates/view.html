@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>View Employee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        form,
+        .result {
+            background-color: #F2F2F2;
+            padding: 20px;
+            border-radius: 5px;
+            width: 400px;
+            margin: 20px auto;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+            border: 1px solid red;
+            box-sizing: border-box;
+
+        }
+
+        input[type=submit] {
+            background-color: #E82827;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #FA3E3C;
+        }
+
+        .error {
+            background-color: #ffe6e6;
+            color: #b30000;
+            padding: 15px;
+            border-radius: 5px;
+            width: 400px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .back {
+            display: block;
+            width: 400px;
+            margin: 10px auto;
+            background-color: #E82827;
+            color: white;
+            padding: 14px;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .back:hover {
+            background-color: #FA3E3C;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3 style="text-align:center;">View Employee</h3>
+
+    <form action="/view_result" method="POST">
+        <input type="text" name="empid" placeholder="Enter Employee ID" required>
+        <input type="submit" value="Search">
+    </form>
+
+    {% if error %}
+    <div class="error">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    {% if emp %}
+    <div class="result">
+        <p><b>ID:</b> {{ emp[0] }}</p>
+        <p><b>Name:</b> {{ emp[1] }}</p>
+        <p><b>Role:</b> {{ emp[2] }}</p>
+    </div>
+    {% endif %}
+
+    <a href="/" class="back">Back to Home</a>
+
+</body>
+
+</html>

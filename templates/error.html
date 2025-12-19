@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Error</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial;
+      background-color: #f2f2f2;
+    }
+
+    .box {
+      max-width: 400px;
+      margin: 120px auto;
+      background-color: white;
+      padding: 25px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background-color: #E82827;
+      color: white;
+      padding: 14px;
+      margin-top: 10px;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #FA3E3C;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h3>Error</h3>
+
+    <p class="error">
+      Employee ID <b>{{ emp_id }}</b> already exists!
+    </p>
+
+    <a href="/add" class="btn">Go Back</a>
+    <a href="/" class="btn">Home</a>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Add Employee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      max-width: 400px;
+      width: 100%;
+      margin: 80px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    input[type=text],
+    select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid red;
+      border-radius: 4px;
+    }
+
+    input[type=submit],
+    .back {
+      width: 100%;
+      background-color: #E82827;
+      color: white;
+      padding: 14px;
+      margin-top: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    input[type=submit]:hover,
+    .back:hover {
+      background-color: #FA3E3C;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h3>Enter Employee Details</h3>
+
+    <form action="/submit" method="POST">
+
+      <label for="emp_id">Employee ID</label>
+      <input type="text" id="emp_id" name="empid" placeholder="Enter ID.." required>
+
+      <label for="emp_name">Employee Name</label>
+      <input type="text" id="emp_name" name="empname" placeholder="Enter Full Name.." required>
+
+      <label for="emp_role">Employee Role</label>
+      <select id="emp_role" name="emprole">
+        <option value="Developer">Developer</option>
+        <option value="Tester">Tester</option>
+        <option value="Designer">Designer</option>
+        <option value="Lead">Team/Tech Lead</option>
+
+      </select>
+
+      <input type="submit" value="Submit">
+    </form>
+
+    <a href="/" class="back">Back to Home</a>
+  </div>
+
+</body>
+
+</html>
