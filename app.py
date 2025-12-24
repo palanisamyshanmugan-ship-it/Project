@@ -5,7 +5,6 @@ import json
 
 app = Flask(__name__)
 
-# Firebase Realtime Database URL
 DATABASE_URL = "https://project-d670c-default-rtdb.firebaseio.com"
 
 
@@ -94,9 +93,7 @@ def view_result():
 
 
 if __name__ == "__main__":
-    # Get port from environment variable (Render provides this)
     port = int(os.environ.get("PORT", 5000))
-    # Only open browser in local development
     if os.environ.get("RENDER") is None:
         import webbrowser
         webbrowser.open(f"http://127.0.0.1:{port}")
