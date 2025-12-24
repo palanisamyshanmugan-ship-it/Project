@@ -5,8 +5,7 @@ import webbrowser
 
 app = Flask(__name__)
 
-cred = credentials.Certificate("serviceAccountKey.json")
-firebase_admin.initialize_app(cred, {
+firebase_admin.initialize_app( {
     "databaseURL": "https://project-d670c-default-rtdb.firebaseio.com"
 })
 
