@@ -8,10 +8,8 @@ mydb = mysql.connector.connect(
     host="localhost",
     user="root",
     password="password",
-    database="Form")
+    database="Form") 
 
-if mydb.is_connected()== False:
-    print("Not Connected")
 
 mycur=mydb.cursor()
 
@@ -27,9 +25,8 @@ def add(detail_list):
     val=detail_list
     mycur.execute(qadd,detail_list)
     mydb.commit()
-#    print('Row added')
 
-def emp_exists(emp_id):
+def emp_exists(emp_id): 
     query = "SELECT emp_ID FROM emp WHERE emp_ID = %s"
     mycur.execute(query, (emp_id,))
     return mycur.fetchone() is not None
