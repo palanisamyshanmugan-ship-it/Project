@@ -1,35 +1,33 @@
-import mysql.connector
+import firebase_admin
+from firebase_admin import credentials, db
 from flask import Flask, render_template, request
 import webbrowser
 
 app = Flask(__name__)
 
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="password",
-    database="Form") 
+cred = credentials.Certificate("serviceAccountKey.json")
+firebase_admin.initialize_app(cred, {
+    "databaseURL": "https://project-d670c-default-rtdb.firebaseio.com"
+})
+
+ref = db.reference("emp")
 
 
-mycur=mydb.cursor()
-
-def display(id_exist):
-    qdisplay='select * from emp where emp_ID = %s'
-    id=(id_exist,)
-    mycur.execute(qdisplay,id)
-    res=mycur.fetchone()
-    return res
+def display(emp_id):
+    data = ref.child(emp_id).get()
+    if data:
+        return (emp_id, data["emp_name"], data["emp_role"])
+    return None
 
 def add(detail_list):
-    qadd='insert into emp value(%s,%s,%s)'
-    val=detail_list
-    mycur.execute(qadd,detail_list)
-    mydb.commit()
+    emp_id, emp_name, emp_role = detail_list
+    ref.child(emp_id).set({
+        "emp_name": emp_name,
+        "emp_role": emp_role
+    })
 
 def emp_exists(emp_id): 
-    query = "SELECT emp_ID FROM emp WHERE emp_ID = %s"
-    mycur.execute(query, (emp_id,))
-    return mycur.fetchone() is not None
+    return ref.child(emp_id).get() is not None
 
 
 @app.route('/')
